@@ -37,7 +37,7 @@ def hello_world():
     return res
 
 def deparse(l, g):
-    p = Point(l,g)
+    p = Point(round(l,5),round(g,5))
     res = {
         "code":"9999",
         "msg":"未查询到坐标定位信息",
@@ -73,17 +73,17 @@ if __name__ == "__main__":
     with open('geo/mapping.json', encoding='utf-8') as f:
         area_region_data_mapping = json.load(f)
             
-    # with open('geo/world.json', encoding='utf-8') as f:
-    #     area_region_data = json.load(f)
-    #     for tmp in area_region_data["features"]:
-    #         t = from_geojson(json.dumps(tmp))
-    #         if(t.is_valid):
-    #             geocountrys.append((
-    #                 t,
-    #                 tmp["properties"]
-    #             ))
-    #         else:
-    #             print(tmp["properties"])
+    with open('geo/world.json', encoding='utf-8') as f:
+        area_region_data = json.load(f)
+        for tmp in area_region_data["features"]:
+            t = from_geojson(json.dumps(tmp))
+            if(t.is_valid):
+                geocountrys.append((
+                    t,
+                    tmp["properties"]
+                ))
+            else:
+                print(tmp["properties"])
     with open('geo/china_areas.geojson', encoding='utf-8') as f:
         region_data = json.load(f)
         for tmp in region_data["features"]:
