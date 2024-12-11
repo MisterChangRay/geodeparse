@@ -29,3 +29,6 @@
 数据来源于政府网站：天地图，于2024.5月收集的数据。
 
 官网： http://lbs.tianditu.gov.cn/server/guide.html
+
+# 附加数据
+1. 高德地址逆编码：https://lbs.amap.com/demo/javascript-api/example/geocoder/regeocoding
