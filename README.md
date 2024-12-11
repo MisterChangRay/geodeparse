@@ -13,6 +13,7 @@
 2. 安装python3.8+版本以上
 3. `pip install` 安装依赖
 4. 执行`server.py`启动项目
+5. 使用接口访问`http://127.0.0.1:11785/geo/gps/decode`
 
 
 # 本地请求示例
