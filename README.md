@@ -19,7 +19,9 @@
 
 # 本地请求示例
 
-项目提供了测试端口方便大家测试使用（不保证稳定性），测试域名：`http://geoparse.mtils.com`
+项目提供了测试端口方便大家测试使用（不保证稳定性）
+
+测试域名：`http://geoparse.mtils.com/geo/gps/decode`
 
 ![image](https://github.com/user-attachments/assets/8b0a94cf-d898-4778-a208-9afa47d076c3)
 
