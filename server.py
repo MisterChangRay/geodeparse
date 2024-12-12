@@ -52,7 +52,7 @@ def deparse(l, g):
     for tmp in geocountrys:
         if(tmp[0].contains(p) == True):
             res["country"] = tmp[1]["full_name"]
-    minDistance = [0.2, None]
+    minDistance = [0.5, None]
     for tmp in geometrys:
         distance = tmp[0].centroid.distance(p)
         if(distance < minDistance[0] ):
@@ -114,7 +114,7 @@ if __name__ == "__main__":
                 ))
             else:
                 print(tmp["properties"])
-    print(deparse(115.557628,22.786789))
+    print(deparse(115.692124,22.866452))
 
     # The options break wsgi, I had to use `run()`
     app.run(host="0.0.0.0", port=11785)
