@@ -52,11 +52,17 @@ def deparse(l, g):
     for tmp in geocountrys:
         if(tmp[0].contains(p) == True):
             res["country"] = tmp[1]["full_name"]
+    minDistance = [1000000, None]
     for tmp in geometrys:
+        distance = tmp[0].centroid.distance(p)
+        if(distance < minDistance[0] ):
+            minDistance[0] = distance
+            minDistance[1] = tmp[1]
+    
         if(tmp[0].contains(p) == True):
             areacode = tmp[1]["gb"]
             if(areacode in area_region_data_mapping):
-                fullinfo = area_region_data_mapping[tmp[1]["gb"]]
+                fullinfo = area_region_data_mapping[areacode]
                 res["code"] = "0000"
                 res["msg"] = "ok"
                 res["province"] = fullinfo[0]
@@ -67,6 +73,19 @@ def deparse(l, g):
                 res["areaCode"] = fullinfo[5]
             else:
                 res["msg"] = "未找到地图数据，请联系开发"
+    if(res["code"] != "0000") :
+        areacode = minDistance[1]["gb"]
+        if(areacode in area_region_data_mapping):
+            fullinfo = area_region_data_mapping[areacode]
+            res["code"] = "0000"
+            res["msg"] = "ok,最近距离匹配结果"
+            res["province"] = fullinfo[0]
+            res["provinceCode"] = fullinfo[1]
+            res["city"] = fullinfo[2]
+            res["cityCode"] = fullinfo[3]
+            res["area"] = fullinfo[4]
+            res["areaCode"] = fullinfo[5]
+        
     return res
 
 if __name__ == "__main__":
@@ -95,7 +114,7 @@ if __name__ == "__main__":
                 ))
             else:
                 print(tmp["properties"])
-    print(deparse(118.13717651367185,24.52618026733399))
+    print(deparse(117.893732,24.631939))
 
     # The options break wsgi, I had to use `run()`
     app.run(host="0.0.0.0", port=11785)
