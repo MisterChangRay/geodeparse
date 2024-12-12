@@ -1,11 +1,12 @@
 # geodeparse
-逆地址编码,实现gps定位解析省市县。
+逆地址编码,实现gps定位解析省市县编码及地名，数据采集于2024.5月，希望帮助到大家。
 
-将坐标解析为省市区，提供统一的json和sql文件，可以将坐标和省市区编码进行统一转换。
+项目提供统一的json和sql文件，以及默认逆地址编码解析服务实现。
 
 文件目录列表：
 - `address.json`文件用于前端项目使用,树形json
 - `t_address.sql`数据表包含数据,方便后端导入使用
+- `xzqh2020-03.xlsx`天地图省市区编码下载源文件
 
 
 # 使用方式
@@ -18,7 +19,7 @@
 
 # 本地请求示例
 
-项目提供了测试端口方便大家使用，测试域名：`http://geoparse.mtils.com`
+项目提供了测试端口方便大家测试使用（不保证稳定性），测试域名：`http://geoparse.mtils.com`
 
 ![image](https://github.com/user-attachments/assets/8b0a94cf-d898-4778-a208-9afa47d076c3)
 
@@ -31,3 +32,4 @@
 
 # 附加数据
 1. 高德地址逆编码：https://lbs.amap.com/demo/javascript-api/example/geocoder/regeocoding
+
