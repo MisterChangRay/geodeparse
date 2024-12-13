@@ -27,7 +27,7 @@ def hello_world():
             "msg":'参数异常 示例:{"longitude":"118.1371","latitude":"24.5261"}',
 
         }
-    res = deparse(float(longitude), float(latitude))
+    res = deparse(longitude, latitude)
     if(res == None):
         return {
             "code":"9999",
@@ -37,9 +37,10 @@ def hello_world():
     return res
 
 def deparse(l, g):
-    p = Point(round(l,5),round(g,5))
+    p = Point(round(float(l), 5),round(float(g), 5))
     res = {
         "code":"9999",
+        "req": "{},{}".format(l, g),
         "msg":"未查询到坐标定位信息",
         "province": "",
         "provinceCode": "",
