@@ -6,7 +6,7 @@
 文件目录列表：
 - `address.json`文件用于前端项目使用,树形json
 - `t_address.sql`数据表包含数据,方便后端导入使用
-- `xzqh2020-03.xlsx`天地图省市区编码下载源文件
+- `ok_geo.csv.7z`地图省市区编码下载源文件
 
 
 # 使用方式
@@ -28,9 +28,12 @@
 
 # 数据来源
 
-数据来源于政府网站：天地图，于2024.5月收集的数据（审图号：GS（2024）0650号）。
+数据来源于另一个开源网站，这个大哥也做了很多年了。
 
-官网： http://lbs.tianditu.gov.cn/server/guide.html
+项目地址：https://xiangyuecn.github.io/
+
+他家还提供街道的geo,不过是付费的。
+
 
 # 附加数据
 1. 高德地址逆编码：https://lbs.amap.com/demo/javascript-api/example/geocoder/regeocoding
