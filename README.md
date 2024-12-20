@@ -38,7 +38,7 @@
 
 他家还提供街道的geo,不过是付费的。
 
-此数据是我购买的，不免费开放。
+此数据是我购买的，不免费开放。想要的可以联系Q80921006
 
 # 附加数据
 1. 高德地址逆编码：https://lbs.amap.com/demo/javascript-api/example/geocoder/regeocoding
