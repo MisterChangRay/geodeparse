@@ -61,53 +61,33 @@ def deparse(l, g):
             minDistance[1] = tmp[1]
     
         if(tmp[0].contains(p) == True):
-            areacode = tmp[1]["gb"]
+            areacode = tmp[1]["id"]
             if(areacode in area_region_data_mapping):
                 fullinfo = area_region_data_mapping[areacode]
+                ext = fullinfo["ext_path"].split(" ")
+                code = str(fullinfo["id"])
                 res["code"] = "0000"
                 res["msg"] = "ok"
-                res["province"] = fullinfo[0]
-                res["provinceCode"] = fullinfo[1]
-                res["city"] = fullinfo[2]
-                res["cityCode"] = fullinfo[3]
-                res["area"] = fullinfo[4]
-                res["areaCode"] = fullinfo[5]
+                res["province"] = ext[0]
+                res["provinceCode"] = code[0:2]
+                res["city"] = ext[1]
+                res["cityCode"] =  code[0:4]
+                res["area"] = ext[2]
+                res["areaCode"] = code
             else:
                 res["msg"] = "未找到地图数据，请联系开发"
-    if(res["code"] != "0000" and minDistance[1] is not None) :
-        areacode = minDistance[1]["gb"]
-        if(areacode in area_region_data_mapping):
-            fullinfo = area_region_data_mapping[areacode]
-            res["code"] = "0000"
-            res["msg"] = "ok,最近距离匹配结果"
-            res["province"] = fullinfo[0]
-            res["provinceCode"] = fullinfo[1]
-            res["city"] = fullinfo[2]
-            res["cityCode"] = fullinfo[3]
-            res["area"] = fullinfo[4]
-            res["areaCode"] = fullinfo[5]
+
         
     return res
 
 if __name__ == "__main__":
     with open('geo/mapping.json', encoding='utf-8') as f:
         area_region_data_mapping = json.load(f)
-            
-    with open('geo/world.json', encoding='utf-8') as f:
-        area_region_data = json.load(f)
-        for tmp in area_region_data["features"]:
-            t = from_geojson(json.dumps(tmp))
-            if(t.is_valid):
-                geocountrys.append((
-                    t,
-                    tmp["properties"]
-                ))
-            else:
-                print(tmp["properties"])
-    with open('geo/china_areas.geojson', encoding='utf-8') as f:
+
+    with open('geo/areas.json', encoding='utf-8') as f:
         region_data = json.load(f)
         for tmp in region_data["features"]:
-            t = from_geojson(json.dumps(tmp))
+            t = from_geojson(json.dumps(tmp, ensure_ascii=False))
             if(t.is_valid):
                 geometrys.append((
                     t,
@@ -115,8 +95,9 @@ if __name__ == "__main__":
                 ))
             else:
                 print(tmp["properties"])
-    print(deparse(115.692124,22.866452))
-
+    print(deparse(117.181654,	39.129657))
+    # print(deparse(117.208256,	39.131854))
+	
     # The options break wsgi, I had to use `run()`
     app.run(host="0.0.0.0", port=11785)
 
