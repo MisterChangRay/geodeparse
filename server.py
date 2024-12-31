@@ -116,6 +116,12 @@ if __name__ == "__main__":
             else:
                 print(tmp["properties"])
     print(deparse(115.692124,22.866452))
+    print(deparse(120.327561,30.44721))
+    print(deparse(120.695603,24.140191))
+    print(deparse(114.153931,22.361286))
+    print(deparse(113.551056,22.201807))
+    
+    
 
     # The options break wsgi, I had to use `run()`
     app.run(host="0.0.0.0", port=11785)
