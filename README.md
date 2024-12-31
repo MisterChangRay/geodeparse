@@ -35,3 +35,13 @@
 # 附加数据
 1. 高德地址逆编码：https://lbs.amap.com/demo/javascript-api/example/geocoder/regeocoding
 
+
+
+# 版本记录
+
+v1.0.3 
+- 修复天地图geojson和excel数据表格数据不一致问题
+- geojson中增加港澳台的解析
+
+v0.0.1
+- geoparse 发布
